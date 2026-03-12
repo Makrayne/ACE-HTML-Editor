@@ -8,6 +8,7 @@
 <style>iframe{width:100vw;border:none;height:100%} #editor{position:relative; width:100vw; height:300px; resize:vertical; overflow:auto;}body{padding:0px;margin:0px;}html,body{height: 100%;overflow:hidden;}
 .box {display: flex; flex-flow: column; height: 100%;}.box-container {display: contents;}
 .box .row.eddy {flex: 0 1 auto;border-bottom:4px gray solid;}.box .row.showy {flex: 1 1 auto;}
+.ace_optionsMenuEntry{font-family:sans-serif !important;}
 </style>
 <script src="https://cdn.jsdelivr.net/combine/npm/ace-builds@1.43.5,npm/ace-builds@1.43.5/src-min-noconflict/ext-searchbox.js,npm/ace-builds@1.43.5/src-min-noconflict/mode-html.js,npm/ace-builds@1.43.5/src-min-noconflict/ext-language_tools.js,npm/ace-builds@1.43.5/src-min-noconflict/theme-crimson_editor.js,npm/ace-builds@1.43.5/src-min-noconflict/ext-options.js"></script>  <body>
 <div class="box"><div class="box-container">
@@ -18,7 +19,7 @@
   <script>
     var BASEeditor = ace.edit("editor"); BASEeditor.insert("<!DOCTYPE html>\n");
     BASEeditor.setTheme("ace/theme/crimson_editor");
-    BASEeditor.session.setMode("ace/mode/html");
+    BASEeditor.session.setMode("ace/mode/html"); 
     BASEeditor.setOptions({"selectionStyle": "line","enableAutoIndent": true,"showLineNumbers": false,"hScrollBarAlwaysVisible": false,"vScrollBarAlwaysVisible": false,"highlightGutterLine": false,"animatedScroll": false,"showPrintMargin": false,"printMargin": false,"fadeFoldWidgets": false,"showFoldWidgets": true,"displayIndentGuides": false,"highlightIndentGuides": false,"showGutter": false,"fontSize": "14px","useTextareaForIME": true,"useSoftTabs": false,"scrollSpeed": 2,"wrap": "off","indentedSoftWrap": false,"foldStyle": "markbegin","enableMultiselect": true,"enableBlockSelect": true,"enableBasicAutocompletion": true,"enableLiveAutocompletion": true,"liveAutocompletionThreshold":3})
 
     let old="";
@@ -36,5 +37,7 @@
         }  
         window.setTimeout(update, 150);
     };
+function appy(e) { if (e.ctrlKey && e.key=="-") {BASEeditor.execCommand("showSettingsMenu");} }
+document.addEventListener("keydown", appy);
   </script>
 </html>
