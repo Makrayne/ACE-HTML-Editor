@@ -11,8 +11,8 @@
 </style>
 <script src="https://cdn.jsdelivr.net/combine/npm/ace-builds@1.43.5,npm/ace-builds@1.43.5/src-min-noconflict/ext-searchbox.js,npm/ace-builds@1.43.5/src-min-noconflict/mode-html.js,npm/ace-builds@1.43.5/src-min-noconflict/ext-language_tools.js,npm/ace-builds@1.43.5/src-min-noconflict/theme-crimson_editor.js,npm/ace-builds@1.43.5/src-min-noconflict/ext-options.js"></script>  <body>
 <div class="box"><div class="box-container">
-    <div id="editor" class="row eddy"></div>
-    <div class="row showy"><iframe id="result"></iframe></div>
+          <div id="editor" class="row eddy"></div>
+          <div class="row showy"><iframe id="result"></iframe></div>
 </div></div>
   </body>
   <script>
@@ -26,6 +26,7 @@
     BASEeddy.addEventListener("mouseover",BASEeditor.resize());
     // iframe logic from https://github.com/sauravhathi/live-html-editor & https://htmledit.squarefree.com/
     BASEeddy.addEventListener("keyup", update())
+    old="";
     function update() {
         if (old != BASEeditor.getValue()) {
             old=BASEeditor.getValue();
