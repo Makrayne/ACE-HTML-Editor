@@ -21,7 +21,12 @@
     BASEeditor.setTheme("ace/theme/crimson_editor");
     BASEeditor.session.setMode("ace/mode/html"); 
     BASEeditor.setOptions({"selectionStyle": "line","enableAutoIndent": true,"showLineNumbers": false,"hScrollBarAlwaysVisible": false,"vScrollBarAlwaysVisible": false,"highlightGutterLine": false,"animatedScroll": false,"showPrintMargin": false,"printMargin": false,"fadeFoldWidgets": false,"showFoldWidgets": true,"displayIndentGuides": false,"highlightIndentGuides": false,"showGutter": false,"fontSize": "14px","useTextareaForIME": true,"useSoftTabs": false,"scrollSpeed": 2,"wrap": "off","indentedSoftWrap": false,"foldStyle": "markbegin","enableMultiselect": true,"enableBlockSelect": true,"enableBasicAutocompletion": true,"enableLiveAutocompletion": true,"liveAutocompletionThreshold":3,"scrollPastEnd":0.5})
-
+    BASEeditor.commands.addCommand({
+        name: 'Options',
+        bindKey: {win: 'Ctrl-M',  mac: 'Command-M'},
+        exec: function(editor) {BASEeditor.execCommand("showSettingsMenu");},
+        readOnly: true
+    });
     let old="";
     const BASEeddy = document.getElementById("editor");
     const BASEresult = document.getElementById("result");
@@ -37,7 +42,5 @@
         }  
         window.setTimeout(update, 150);
     };
-function appy(e) { if (e.ctrlKey && e.key=="-") {BASEeditor.execCommand("showSettingsMenu");} }
-document.addEventListener("keydown", appy);
   </script>
 </html>
